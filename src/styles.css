@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.logo{
+  width: 25px;
+}
+
+/* .select-search, .input-search{
+  background-color: rgba(128, 128, 128, 0.101);
+} */
+
+.select-search{
+  border: 0 solid;
+  border-radius: 10px 0px 0px 10px;
+  width: 200px;
+
+}
+
+.input-search{
+  border: 0 solid;
+  border-radius: 0px 10px 10px 0px;
+  width: 400px;
+}
+
+.navbar{
+  border-bottom: 2px solid rgba(128, 128, 128, 0.321);
+  
+}
+
+.button-search{
+  position: absolute;
+  right: 20px;
+  text-align: center;
+  border: none;
+  background: none;
+}
+
+.button-search svg{
+ vertical-align: baseline;
+}
+
+.search{
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-icon{
+
+}
