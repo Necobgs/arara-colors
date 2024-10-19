@@ -1,0 +1,8 @@
+#carouselExampleIndicators {
+  width: 763px;
+  height: 630px;
+
+  & img {
+    border-radius: 10px;
+  }
+}
