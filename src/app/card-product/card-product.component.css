@@ -1,0 +1,70 @@
+.card-body {
+  & h3 {
+    width: 100%;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+    color: #333;
+  }
+}
+
+.info-product {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 5px;
+
+  & .qtd {
+    width: 100%;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #9D9D9D;
+  }
+
+  & .price {
+    width: 100%;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #222;
+  }
+
+  & input {
+    height: auto;
+    width: 28px;
+    text-align: center;
+    border: none;
+    outline: none;
+  }
+}
+
+.btn-secondary {
+  width: 26px;
+  height: auto;
+
+  line-height: 1;
+  text-align: center;
+  padding: 2.5px;
+
+  font-size: 25px;
+  font-weight: 300;
+  background-color: #fff;
+  color: #222;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+
+  transition: background-color 1.5s ease-in-out;
+}
+
+.btn-clicked-remove {
+  background-color: red;
+}
+
+.btn-clicked-add {
+  background-color: green;
+}

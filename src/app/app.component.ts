@@ -5,11 +5,12 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CardSaleComponent } from './card-sale/card-sale.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { CardCategoryComponent } from './card-category/card-category.component';
+import { CardProductComponent } from './card-product/card-product.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, CarouselComponent, CardSaleComponent, PaginationComponent, CardCategoryComponent],
+  imports: [RouterOutlet, HeaderComponent, CarouselComponent, CardSaleComponent, PaginationComponent, CardCategoryComponent, CardProductComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

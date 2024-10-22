@@ -11,14 +11,25 @@
   </section>
 
   <div style="display: flex; justify-content: space-between; margin: 5% 0 5%;">
-    <h2 style="font-weight: 700;">Produtos</h2>
+    <h2 style="font-weight: 700;">Categorias</h2>
 
     <app-pagination></app-pagination>
   </div>
 
   <div class="main-category">
     <app-card-category [imagemCard]="'assets/images/icons-category/paint.png'" [nomeCard]="'Tintas'"></app-card-category>
+    <app-card-category [imagemCard]="'assets/images/icons-category/paint.png'" [nomeCard]="'Balde de Tinta'"></app-card-category>
   </div>
+
+  <div style="display: flex; justify-content: space-between; margin: 5% 0 5%;">
+    <h2 style="font-weight: 700;">Produtos em alta</h2>
+
+    <app-pagination></app-pagination>
+  </div>
+
+  <section class="products">
+    <app-card-product [nomeProduto]="'Tinta sustentável a base de óleo. Cor azul.'" [quantidadeProduto]="1" [precoProduto]="22.90"></app-card-product>
+  </section>
 </div>
 
 <router-outlet />

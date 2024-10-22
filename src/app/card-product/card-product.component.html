@@ -1,1 +1,39 @@
-<p>card-product works!</p>
+<div class="card" style="width: 18rem">
+  <img
+    src="https://via.placeholder.com/763x630?text=Imagem+Produto"
+    class="card-img-top"
+    alt="Imagem Produto"
+  />
+  <div class="card-body">
+    <h3>{{ nomeProduto }}</h3>
+
+    <div class="info-product">
+      <span class="qtd">{{ quantidadeProduto }} unidade/s</span>
+      <span class="price">R$ {{ precoProduto }}</span>
+
+      <section>
+        <button
+          [ngClass]="{ 'btn-clicked-remove': isClickedRemove }"
+          (click)="toggleClick('remove')"
+          type="button"
+          id="remove"
+          class="btn btn-secondary"
+        >
+          -
+        </button>
+
+        <input type="text" [value]="quantidade" readonly />
+        
+        <button
+          [ngClass]="{ 'btn-clicked-add': isClickedAdd }"
+          (click)="toggleClick('add')"
+          type="button"
+          id="add"
+          class="btn btn-secondary"
+        >
+          +
+        </button>
+      </section>
+    </div>
+  </div>
+</div>
