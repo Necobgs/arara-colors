@@ -19,7 +19,7 @@
 
       <section>
         <button
-          [ngClass]="{ 'btn-clicked-remove': isClickedRemove }"
+          [ngClass]="{ 'btn-clicked-remove': isClicked == 'remove' }"
           (click)="toggleClick('remove')"
           type="button"
           id="remove"
@@ -31,7 +31,7 @@
         <input type="text" [value]="quantidade" readonly />
         
         <button
-          [ngClass]="{ 'btn-clicked-add': isClickedAdd }"
+          [ngClass]="{ 'btn-clicked-add': isClicked == 'add' }"
           (click)="toggleClick('add')"
           type="button"
           id="add"
