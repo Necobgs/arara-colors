@@ -1,0 +1,13 @@
+.main-category {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 5%;
+}
+
+.products {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 5%;
+}
