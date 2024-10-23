@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterModule, RouterLink } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-card-product',
@@ -12,7 +12,7 @@ import { RouterModule, RouterLink } from '@angular/router';
 export class CardProductComponent {
   @Input() nomeProduto!: string;
   @Input() quantidadeProduto!: number;
-  @Input() precoProduto!: number;
+  @Input() precoProduto!: string;
 
   isClicked: 'remove' | 'add' | null = null;
   quantidade: number = 1;
