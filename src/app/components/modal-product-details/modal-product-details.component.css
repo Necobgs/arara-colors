@@ -124,14 +124,6 @@ p {
   transition: background-color 1.5s ease-in-out;
 }
 
-.btn-clicked-remove {
-  background-color: red;
-}
-
-.btn-clicked-add {
-  background-color: green;
-}
-
 .section-buttons {
   margin-top: 35px;
   margin-bottom: 15px;

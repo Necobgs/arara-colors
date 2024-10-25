@@ -1,6 +1,6 @@
 <div class="product-page">
   <div class="product-container">
-    <h1 class="product-title">{{ nomeProduto }}</h1>
+    <h1 class="product-title">{{ produto.product_name }}</h1>
 
     <a id="favorite" href="#">
       <svg
@@ -29,7 +29,7 @@
       >
         <div class="product-image">
           <img
-            src="https://via.placeholder.com/763x630?text=Imagem+Produto"
+            [src]="imagemSelecionada"
             alt="Imagem Produto"
           />
         </div>
@@ -43,14 +43,14 @@
               margin-bottom: 7%;
             "
           ></div>
-          <span class="price">R$ {{ precoProduto }}</span>
+          <span class="price">R$ {{ produto.price_cash }}</span>
           <p>à vista</p>
           <div style="display: flex; align-items: center; gap: 5px">
             <p style="font-weight: 800">R$ 382,87</p>
             <p style="color: rgb(161, 155, 162); font-weight: 800">em até</p>
-            <p style="font-weight: 800">3x de R$ 127,62 sem juros</p>
+            <p style="font-weight: 800">{{produto.installment_times}}x de R$ {{(produto.price / produto.installment_times).toFixed(2)}} sem juros</p>
           </div>
-          <span class="qtd">{{ quantidadeProduto }} unidade/s</span>
+          <span class="qtd">{{ produto.quantity_in_stock }} {{ produto.quantity_in_stock > 1 ? 'UNIDADES' : 'UNIDADES' }}</span>
 
           <section style="margin-top: 20px">
             <button
@@ -131,15 +131,13 @@
       <!-- Imagens do produto -->
       <div>
         <div class="format-img-product">
-          <img
-            src="https://via.placeholder.com/763x630?text=Imagem+Produto"
+          @for (imagem of produto.productImages; track $index) {
+            <img
+            src="{{ imagem.product_path_image }}"
             alt="Imagem Produto"
-          />
-
-          <img
-            src="https://via.placeholder.com/763x630?text=Imagem+Produto"
-            alt="Imagem Produto"
-          />
+            (click)="alterarImagem($event)"
+            />
+          }
         </div>
       </div>
       
