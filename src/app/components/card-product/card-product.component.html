@@ -7,7 +7,7 @@
 
   <a routerLink="/product" style="cursor: pointer;">
     <img
-      src="https://via.placeholder.com/763x630?text=Imagem+Produto"
+      [src]='imagem'
       class="card-img-top"
       alt="Imagem Produto"
     />
@@ -16,7 +16,7 @@
     <h3>{{ nomeProduto }}</h3>
 
     <div class="info-product">
-      <span class="qtd">{{ quantidadeProduto }} unidade/s</span>
+      <span class="qtd">{{ quantidadeProduto }} {{ quantidadeProduto > 1 ? 'UNIDADES' : 'UNIDADE'}}</span>
       <span class="price">R$ {{ precoProduto }}</span>
 
       <section>

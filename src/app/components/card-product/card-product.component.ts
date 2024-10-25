@@ -13,6 +13,7 @@ export class CardProductComponent {
   @Input() nomeProduto!: string;
   @Input() quantidadeProduto!: number;
   @Input() precoProduto!: string;
+  @Input() imagem!: string;
 
   isClicked: 'remove' | 'add' | null = null;
   quantidade: number = 1;
