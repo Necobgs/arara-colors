@@ -4,6 +4,8 @@ import { CardSaleComponent } from '../../components/card-sale/card-sale.componen
 import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { CardCategoryComponent } from '../../components/card-category/card-category.component';
 import { CardProductComponent } from '../../components/card-product/card-product.component';
+import { Signin } from '../../models/signin.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,5 +15,6 @@ import { CardProductComponent } from '../../components/card-product/card-product
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  
+  constructor(private authService:AuthService){}
 }
