@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-modal-product-details',
@@ -9,6 +10,17 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./modal-product-details.component.css']
 })
 export class ModalProductDetailsComponent {
+
+  constructor(private readonly router:ActivatedRoute){}
+  
+  ngOnInit(){
+    this.router.params.subscribe((params:any)=>{
+      this.id_produto = +params.id
+      
+    })
+  }
+  
+  id_produto!:number;
   produto = 
     {
         product_id: 2,
@@ -39,23 +51,28 @@ export class ModalProductDetailsComponent {
         ]
     }
 
+  
 
   imagemSelecionada = this.produto.productImages[0].product_path_image
   isClicked: 'remove' | 'add' | null = null;
   quantidade: number = 1;
 
-  toggleClick(buttonId: 'remove' | 'add'): void {
-    this.isClicked = (this.isClicked === buttonId) ? null : buttonId;
-
-    if (buttonId === 'remove' && this.quantidade > 1) {
-      this.quantidade -= 1;
-    } else if (buttonId === 'add' && this.quantidade < this.produto.quantity_in_stock) {
-      this.quantidade += 1
+  // buttonId: 'remove' | 'add'
+  toggleClick(add_remove:number): void {
+    if(this.quantidade+add_remove > 0 && this.quantidade+add_remove <= this.produto.quantity_in_stock){
+      this.quantidade += add_remove
     }
+    // this.isClicked = (this.isClicked === buttonId) ? null : buttonId;
 
-    setTimeout(() => {
-      this.isClicked = null;
-    }, 500);
+    // if (buttonId === 'remove' && this.quantidade > 1) {
+    //   this.quantidade -= 1;
+    // } else if (buttonId === 'add' && this.quantidade < this.produto.quantity_in_stock) {
+    //   this.quantidade += 1
+    // }
+
+    // setTimeout(() => {
+    //   this.isClicked = null;
+    // }, 500);
   }
 
   alterarImagem(event:Event){
