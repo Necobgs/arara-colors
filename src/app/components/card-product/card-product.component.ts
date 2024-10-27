@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -12,8 +12,9 @@ import { RouterModule } from '@angular/router';
 export class CardProductComponent {
   @Input() nomeProduto!: string;
   @Input() quantidadeProduto!: number;
-  @Input() precoProduto!: string;
+  @Input() precoProduto!: number;
   @Input() imagem!: string;
+  @Input() id_produto!:number; 
 
   isClicked: 'remove' | 'add' | null = null;
   quantidade: number = 1;

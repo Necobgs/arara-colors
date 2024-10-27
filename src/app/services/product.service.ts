@@ -2,6 +2,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Auth } from '../models/interfaces/auth';
+import { Product } from '../models/interfaces/product';
+import { ProductDto } from '../models/product.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -20,17 +22,30 @@ export class ProductService {
       authData = JSON.parse(authData) as Auth
       headers.set('Authorization',`Bearer ${authData.token}`)
     }
-    return this.http.get(`${this.apiUrl}/products/${product_id}`)
+    return this.http.get<Product>(`${this.apiUrl}/products/${product_id}`)
   }
 
-  getAll(qty_per_page:number,page:number){
+  getAll(filters:ProductDto){
     const headers = new HttpHeaders();
-    let authData: Auth | null | string
-    authData = localStorage.getItem('authData')
+    let authData: Auth | null | string = null;
+    if(typeof(localStorage) !== 'undefined'){
+      authData = localStorage.getItem('authData')
+    }
     if(authData){
       authData = JSON.parse(authData) as Auth
       headers.set('Authorization',`Bearer ${authData.token}`)
     }
-    return this.http.get(`${this.apiUrl}/products?page=${page}&qty_per_page=${qty_per_page}`)
+    let paramsArray: string[] = [];
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) { // Para evitar parâmetros vazios
+        const encodedKey = encodeURIComponent(key);
+        const encodedValue = encodeURIComponent(String(value));
+        paramsArray.push(`${encodedKey}=${encodedValue}`);
+      }
+    });
+
+    const params = paramsArray.join('&');
+    const url = `${this.apiUrl}/products?${params}`;
+    return this.http.get<Product[]>(url, { headers });
   }
 }

@@ -4,8 +4,10 @@ import { CardSaleComponent } from '../../components/card-sale/card-sale.componen
 import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { CardCategoryComponent } from '../../components/card-category/card-category.component';
 import { CardProductComponent } from '../../components/card-product/card-product.component';
-import { Signin } from '../../models/signin.model';
-import { AuthService } from '../../services/auth.service';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../models/interfaces/product';
+import { catchError, tap } from 'rxjs';
+
 
 @Component({
   selector: 'app-home',
@@ -16,5 +18,14 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HomeComponent {
   
-  constructor(private authService:AuthService){}
+  produtos!:Product[]
+  constructor(private productService:ProductService){}
+
+  ngOnInit(){
+    this.productService.getAll({page:1,qty_per_page:10}).pipe(
+      tap(data=>  {this.produtos = data}),
+      catchError(error => {console.log(`"${error}"`); return error;})
+    ).subscribe()
+  }
+
 }

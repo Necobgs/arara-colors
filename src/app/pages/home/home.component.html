@@ -26,7 +26,18 @@
   </div>
 
   <section class="products">
-    <app-card-product [nomeProduto]="'Tinta sustentável a base de óleo. Cor azul.'" [quantidadeProduto]="1" [precoProduto]="'22.90'" [imagem]="'assets/images/image_tinta.jpeg'"></app-card-product>
-    <app-card-product [nomeProduto]="'Tinta sustentável a base de óleo. Cor azul.'" [quantidadeProduto]="1" [precoProduto]="'22.90'" [imagem]="'assets/images/image_tinta.jpeg'"></app-card-product>
+    @for (produto of produtos; track $index) {
+      <app-card-product 
+      [nomeProduto]="produto.product_name" 
+      [quantidadeProduto]="produto.quantity_in_stock" 
+      [precoProduto]="produto.price_cash" 
+      [imagem]="produto.productImages[0].product_path_image"
+      [id_produto]="produto.product_id"
+      >
+    </app-card-product>
+    }
+    
   </section>
 </div>
+
+
