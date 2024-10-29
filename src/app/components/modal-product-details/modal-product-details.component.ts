@@ -1,24 +1,20 @@
-import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../../api/models/interfaces/product';
 import { ProductService } from '../../../api/services/product.service';
-import { tap } from 'rxjs';
+import { catchError, tap } from 'rxjs';
+import { ActivatedRoute } from "@angular/router"
+import { CurrencyFormatterPipe } from "../../pipes/currency-formatter.pipe";
 
 @Component({
   selector: 'app-modal-product-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CurrencyFormatterPipe],
   templateUrl: './modal-product-details.component.html',
-  styleUrls: ['./modal-product-details.component.css'],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'pt-BR' },
-    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }
-  ]
+  styleUrls: ['./modal-product-details.component.css']
   
 })
-export class ModalProductDetailsComponent {
-
+export class ModalProductDetailsComponent implements OnInit{
   
   produto!:Product;
   imagemSelecionada!:string;
@@ -27,22 +23,22 @@ export class ModalProductDetailsComponent {
 
   
 
-  constructor(private router:ActivatedRoute,
+  constructor(private route:ActivatedRoute,
     private productService:ProductService 
   ){}
 
-  
-
   ngOnInit() {
-    this.router.params.subscribe((params: any) => {
-      this.productService.getOne(params.id).pipe(
-        tap((produto) => {
-          this.produto = produto[0];
-          console.log(produto)
+    const id_produto = this.route.snapshot.paramMap.get('id')
+    if(id_produto){
+      this.productService.getOne(+id_produto).pipe(
+        tap((data) => {
+          this.produto = data[0];
           this.imagemSelecionada = this.produto.productImages[0].product_path_image;
-        })
+        }),
+        catchError(error => {console.log(error); return [];})
       ).subscribe();
-    });
+    }
+
   }
 
 

@@ -44,7 +44,7 @@
               margin-bottom: 7%;
             "
           ></div>
-          <span class="price">{{ produto.price_cash | currency:'BRL':'symbol':'1.2-2' }}</span>
+          <span class="price">{{ +produto.price_cash | currencyFormatter }}</span>
         <p>à vista</p>
           <div style="display: flex; align-items: center; gap: 5px">
             <p style="font-weight: 800">R$ {{ produto.price }}</p>
