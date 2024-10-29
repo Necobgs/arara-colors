@@ -8,6 +8,6 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './card-category.component.css'
 })
 export class CardCategoryComponent {
-  @Input() imagemCard!: string;
+  @Input() icon!: string;
   @Input() nomeCard!: string;
 }

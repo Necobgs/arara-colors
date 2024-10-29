@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
 export class CardProductComponent {
   @Input() nomeProduto!: string;
   @Input() quantidadeProduto!: number;
-  @Input() precoProduto!: number;
+  @Input() precoProduto!: number | string;
   @Input() imagem!: string;
   @Input() id_produto!:number; 
 

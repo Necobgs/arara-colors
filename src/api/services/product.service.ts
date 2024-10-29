@@ -1,9 +1,9 @@
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
 import { Auth } from '../models/interfaces/auth';
 import { Product } from '../models/interfaces/product';
 import { ProductDto } from '../models/product.dto';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +16,15 @@ export class ProductService {
 
   getOne(product_id:number){
     const headers = new HttpHeaders();
-    let authData: Auth | null | string
-    authData = localStorage.getItem('authData')
+    let authData: Auth | null | string = null;
+    if(typeof(localStorage) !== 'undefined'){
+      authData = localStorage.getItem('authData')
+    }
     if(authData){
       authData = JSON.parse(authData) as Auth
       headers.set('Authorization',`Bearer ${authData.token}`)
     }
-    return this.http.get<Product>(`${this.apiUrl}/products/${product_id}`)
+    return this.http.get<Product[]>(`${this.apiUrl}/products/${product_id}`)
   }
 
   getAll(filters:ProductDto){

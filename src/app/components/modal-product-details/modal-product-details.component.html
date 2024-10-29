@@ -44,12 +44,12 @@
               margin-bottom: 7%;
             "
           ></div>
-          <span class="price">R$ {{ produto.price_cash }}</span>
-          <p>à vista</p>
+          <span class="price">{{ produto.price_cash | currency:'BRL':'symbol':'1.2-2' }}</span>
+        <p>à vista</p>
           <div style="display: flex; align-items: center; gap: 5px">
-            <p style="font-weight: 800">R$ 382,87</p>
+            <p style="font-weight: 800">R$ {{ produto.price }}</p>
             <p style="color: rgb(161, 155, 162); font-weight: 800">em até</p>
-            <p style="font-weight: 800">{{produto.installment_times}}x de R$ {{(produto.price / produto.installment_times).toFixed(2)}} sem juros</p>
+            <p style="font-weight: 800">{{produto.installment_times}}x de R$ {{( qtd_vezes)}} sem juros</p>
           </div>
           <span class="qtd">{{ produto.quantity_in_stock }} {{ produto.quantity_in_stock > 1 ? 'UNIDADES' : 'UNIDADES' }}</span>
 
