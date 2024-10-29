@@ -15,15 +15,15 @@ export class ProductService {
   private apiUrl = environment.apiUrl
 
   getOne(product_id:number){
-    const headers = new HttpHeaders();
-    let authData: Auth | null | string = null;
-    if(typeof(localStorage) !== 'undefined'){
-      authData = localStorage.getItem('authData')
-    }
-    if(authData){
-      authData = JSON.parse(authData) as Auth
-      headers.set('Authorization',`Bearer ${authData.token}`)
-    }
+    // const headers = new HttpHeaders();
+    // let authData: Auth | null | string = null;
+    // if(typeof(localStorage) !== 'undefined'){
+    //   authData = localStorage.getItem('authData')
+    // }
+    // if(authData){
+    //   authData = JSON.parse(authData) as Auth
+    //   headers.set('Authorization',`Bearer ${authData.token}`)
+    // }
     return this.http.get<Product[]>(`${this.apiUrl}/products/${product_id}`)
   }
 

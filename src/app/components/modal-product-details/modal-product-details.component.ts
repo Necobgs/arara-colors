@@ -2,7 +2,7 @@ import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/co
 import { CommonModule } from '@angular/common';
 import { Product } from '../../../api/models/interfaces/product';
 import { ProductService } from '../../../api/services/product.service';
-import { catchError, tap } from 'rxjs';
+import { catchError, lastValueFrom, tap } from 'rxjs';
 import { ActivatedRoute } from "@angular/router"
 import { CurrencyFormatterPipe } from "../../pipes/currency-formatter.pipe";
 
@@ -20,25 +20,32 @@ export class ModalProductDetailsComponent implements OnInit{
   imagemSelecionada!:string;
   quantidade: number = 1;
   qtd_vezes!: number | string;
-
   
 
   constructor(private route:ActivatedRoute,
     private productService:ProductService 
   ){}
 
-  ngOnInit() {
+  // ngOnInit() {
+  //   const id_produto = this.route.snapshot.paramMap.get('id')
+  //   if(id_produto){
+  //     this.productService.getOne(+id_produto).pipe(
+  //       tap((data) => {
+  //         this.produto = data[0];
+  //         this.imagemSelecionada = this.produto.productImages[0].product_path_image;
+  //       }),
+  //       catchError(error => {console.log(error); return [];})
+  //     ).subscribe();
+  //   }
+
+  async ngOnInit() {
     const id_produto = this.route.snapshot.paramMap.get('id')
     if(id_produto){
-      this.productService.getOne(+id_produto).pipe(
-        tap((data) => {
-          this.produto = data[0];
-          this.imagemSelecionada = this.produto.productImages[0].product_path_image;
-        }),
-        catchError(error => {console.log(error); return [];})
-      ).subscribe();
+      const produtos = await lastValueFrom(this.productService.getOne(+id_produto))
+      this.produto = produtos[0]
+      console.log(this.produto)
+      this.imagemSelecionada = this.produto.productImages[0].product_path_image
     }
-
   }
 
 
