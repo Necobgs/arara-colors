@@ -24,19 +24,19 @@ export class ProductService {
     //   authData = JSON.parse(authData) as Auth
     //   headers.set('Authorization',`Bearer ${authData.token}`)
     // }
-    return this.http.get<Product[]>(`${this.apiUrl}/products/${product_id}`)
+    return this.http.get<Product>(`${this.apiUrl}/products/${product_id}`)
   }
 
   getAll(filters:ProductDto){
     const headers = new HttpHeaders();
-    let authData: Auth | null | string = null;
-    if(typeof(localStorage) !== 'undefined'){
-      authData = localStorage.getItem('authData')
-    }
-    if(authData){
-      authData = JSON.parse(authData) as Auth
-      headers.set('Authorization',`Bearer ${authData.token}`)
-    }
+    // let authData: Auth | null | string = null;
+    // if(typeof(localStorage) !== 'undefined'){
+    //   authData = localStorage.getItem('authData')
+    // }
+    // if(authData){
+    //   authData = JSON.parse(authData) as Auth
+    //   headers.set('Authorization',`Bearer ${authData.token}`)
+    // }
     let paramsArray: string[] = [];
     Object.entries(filters).forEach(([key, value]) => {
       if (value !== undefined && value !== null) { // Para evitar parâmetros vazios
@@ -48,6 +48,6 @@ export class ProductService {
 
     const params = paramsArray.join('&');
     const url = `${this.apiUrl}/products?${params}`;
-    return this.http.get<Product[]>(url, { headers });
+    return this.http.get<Product[]>(url);
   }
 }

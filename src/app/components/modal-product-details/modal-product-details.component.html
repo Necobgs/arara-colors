@@ -1,3 +1,4 @@
+@if(produto){
 <div class="product-page">
   <div class="product-container">
     <h1 class="product-title">{{ produto.product_name }}</h1>
@@ -47,9 +48,9 @@
           <span class="price">{{ +produto.price_cash | currencyFormatter }}</span>
         <p>à vista</p>
           <div style="display: flex; align-items: center; gap: 5px">
-            <p style="font-weight: 800">R$ {{ produto.price }}</p>
+            <p style="font-weight: 800">{{ produto.price | currencyFormatter }}</p>
             <p style="color: rgb(161, 155, 162); font-weight: 800">em até</p>
-            <p style="font-weight: 800">{{produto.installment_times}}x de R$ {{( qtd_vezes)}} sem juros</p>
+            <p style="font-weight: 800">{{ produto.installment_times }} x de {{( (produto.price / produto.installment_times) | currencyFormatter )}} sem juros</p>
           </div>
           <span class="qtd">{{ produto.quantity_in_stock }} {{ produto.quantity_in_stock > 1 ? 'UNIDADES' : 'UNIDADES' }}</span>
 
@@ -127,8 +128,7 @@
         </div>
       </div>
 
-      <!-- Imagens do produto -->
-       
+ 
       <div>
         <div class="format-img-product">
           @for (imagem of produto.productImages; track $index) {
@@ -141,7 +141,7 @@
         </div>
       </div>
       
-      <!-- Divisor para detalhes do produto e características técnicas -->
+
       <div
         style="
           width: 100%;
@@ -153,3 +153,4 @@
     </section>
   </div>
 </div>
+}

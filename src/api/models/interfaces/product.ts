@@ -6,12 +6,12 @@ export interface Product {
     product_name:string;
     color_name:string;
     quantity_in_stock:number;
-    price:number | string;
+    price:number;
     category_id:number;
     created_at:string;
-    price_cash:number | string;
+    price_cash:number;
     installment_times:number;
-    category:Category[];
+    category:Category;
     productImages:ProductImages[];
     isFavorite?:boolean;
 }

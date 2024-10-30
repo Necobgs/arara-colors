@@ -14,7 +14,6 @@ export class CategoryService {
   private apiUrl:string = environment.apiUrl;
 
   getAll(){
-    console.log(`${this.apiUrl}/categories`)
     return this.http.get<Category[]>(`${this.apiUrl}/categories`)
   }
 

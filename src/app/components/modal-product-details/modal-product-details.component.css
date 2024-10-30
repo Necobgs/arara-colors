@@ -173,5 +173,13 @@ p {
     max-width: 100%;
     border-radius: 100%;
     border: 2.5px solid #ffde51;
+    transition: all .3s ease;
+    cursor: pointer;
+  }
+
+  & img:hover {
+    filter: blur(1px);
   }
 }
+
+

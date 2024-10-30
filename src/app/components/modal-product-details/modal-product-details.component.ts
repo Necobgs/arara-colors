@@ -1,8 +1,8 @@
-import { Component, DEFAULT_CURRENCY_CODE, LOCALE_ID, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, signal } from '@angular/core';
+import { CommonModule, AsyncPipe } from '@angular/common';
 import { Product } from '../../../api/models/interfaces/product';
 import { ProductService } from '../../../api/services/product.service';
-import { catchError, lastValueFrom, tap } from 'rxjs';
+import { lastValueFrom, Observable, tap } from 'rxjs';
 import { ActivatedRoute } from "@angular/router"
 import { CurrencyFormatterPipe } from "../../pipes/currency-formatter.pipe";
 
@@ -14,40 +14,22 @@ import { CurrencyFormatterPipe } from "../../pipes/currency-formatter.pipe";
   styleUrls: ['./modal-product-details.component.css']
   
 })
-export class ModalProductDetailsComponent implements OnInit{
+export class ModalProductDetailsComponent{
   
+
   produto!:Product;
   imagemSelecionada!:string;
   quantidade: number = 1;
-  qtd_vezes!: number | string;
-  
 
   constructor(private route:ActivatedRoute,
     private productService:ProductService 
   ){}
 
-  // ngOnInit() {
-  //   const id_produto = this.route.snapshot.paramMap.get('id')
-  //   if(id_produto){
-  //     this.productService.getOne(+id_produto).pipe(
-  //       tap((data) => {
-  //         this.produto = data[0];
-  //         this.imagemSelecionada = this.produto.productImages[0].product_path_image;
-  //       }),
-  //       catchError(error => {console.log(error); return [];})
-  //     ).subscribe();
-  //   }
-
-  async ngOnInit() {
-    const id_produto = this.route.snapshot.paramMap.get('id')
-    if(id_produto){
-      const produtos = await lastValueFrom(this.productService.getOne(+id_produto))
-      this.produto = produtos[0]
-      console.log(this.produto)
-      this.imagemSelecionada = this.produto.productImages[0].product_path_image
-    }
+  async ngOnInit(){
+    const id_produto = this.route.snapshot.paramMap.get('id') as string;
+    this.produto = await lastValueFrom(this.productService.getOne(+id_produto))
+    this.imagemSelecionada = this.produto.productImages[0].product_path_image
   }
-
 
   toggleClick(add_remove:number): void {
     if(this.quantidade+add_remove > 0 && this.quantidade+add_remove <= this.produto.quantity_in_stock){
