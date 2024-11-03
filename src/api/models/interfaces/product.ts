@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { ProductFeature } from "./product-feature";
 import { ProductImages } from "./product-images";
 
 export interface Product {
@@ -14,4 +15,5 @@ export interface Product {
     category:Category;
     productImages:ProductImages[];
     isFavorite?:boolean;
+    productFeature?:ProductFeature[];
 }

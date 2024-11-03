@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { ModalProductDetailsComponent } from './components/modal-product-details/modal-product-details.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 export const routes: Routes = [
   {
@@ -9,6 +9,6 @@ export const routes: Routes = [
   },
   {
     path: 'product/:id',
-    component: ModalProductDetailsComponent
+    component: ProductDetailComponent
   },
 ];
