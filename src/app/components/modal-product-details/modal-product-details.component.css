@@ -167,12 +167,10 @@ p {
   border-radius: 100%;
   margin-bottom: 2.5%;
 
-
-
   & img {
     max-width: 100%;
-    border-radius: 100%;
-    border: 2.5px solid #ffde51;
+    border-radius: 10px;
+    border: 1px solid rgba(29, 29, 29, 0.212);
     transition: all .3s ease;
     cursor: pointer;
   }

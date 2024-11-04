@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModalProductDetailsComponent } from '../modal-product-details/modal-product-details.component';
 import { ModalProductFeaturesComponent } from "../modal-product-features/modal-product-features.component";
 import { Product } from '../../../api/models/interfaces/product';
@@ -14,16 +14,18 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent{
   
   produto!:Product;
 
   constructor(private route:ActivatedRoute,
-    private productService:ProductService 
+    private productService:ProductService
   ){}
 
   async ngOnInit(){
     const id_produto = this.route.snapshot.paramMap.get('id') as string;
-    this.produto = await lastValueFrom(this.productService.getOne(+id_produto))
+    this.productService.getOne(+id_produto).subscribe((data)=>{
+        this.produto = data;
+    });
   }
 }
