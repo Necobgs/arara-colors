@@ -1,4 +1,5 @@
 import { Category } from "./category";
+import { ProductFeature } from "./product-feature";
 import { ProductImages } from "./product-images";
 
 export interface Product {
@@ -11,7 +12,8 @@ export interface Product {
     created_at:string;
     price_cash:number;
     installment_times:number;
-    category:Category[];
+    category:Category;
     productImages:ProductImages[];
     isFavorite?:boolean;
+    productFeature?:ProductFeature[];
 }

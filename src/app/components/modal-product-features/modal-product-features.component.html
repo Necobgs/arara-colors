@@ -1,0 +1,17 @@
+<div class="product-page">
+    <div class="product-container">
+        <h1 class="product-title">Características</h1>
+        <table class="table table-striped">
+            @for (row of caracteristicas; track $index) {
+                <tr>
+                    <td>
+                        <strong>{{row.name}}</strong>
+                    </td>
+                    <td>
+                        {{row.description}}
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

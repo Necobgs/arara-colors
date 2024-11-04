@@ -4,9 +4,11 @@ import { CardSaleComponent } from '../../components/card-sale/card-sale.componen
 import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { CardCategoryComponent } from '../../components/card-category/card-category.component';
 import { CardProductComponent } from '../../components/card-product/card-product.component';
-import { ProductService } from '../../../api/services/product.service';
+import { lastValueFrom, tap } from 'rxjs';
 import { Product } from '../../../api/models/interfaces/product';
-import { catchError, tap } from 'rxjs';
+import { ProductService } from '../../../api/services/product.service';
+import { Category } from '../../../api/models/interfaces/category';
+import { CategoryService } from '../../../api/services/category.service';
 
 
 @Component({
@@ -18,14 +20,14 @@ import { catchError, tap } from 'rxjs';
 })
 export class HomeComponent {
   
-  produtos!:Product[]
-  constructor(private productService:ProductService){}
+  produtos!:Product[] | null;
+  categories!:Category[];
+  constructor(private productService:ProductService,
+    private categoryService:CategoryService
+  ){}
 
-  ngOnInit(){
-    this.productService.getAll({page:1,qty_per_page:10}).pipe(
-      tap(data=>  {this.produtos = data}),
-      catchError(error => {console.log(`"${error}"`); return error;})
-    ).subscribe()
+  async ngOnInit(){
+    this.produtos = await lastValueFrom(this.productService.getAll({page:1,qty_per_page:10}))
+    this.categories = await lastValueFrom(this.categoryService.getAll())
   }
-
 }

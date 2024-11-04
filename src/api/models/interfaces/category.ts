@@ -1,5 +1,6 @@
 export interface Category {
     category_id:number;
     category_name:string;
-    description:number;
+    description:string;
+    category_icon:string;
 }
