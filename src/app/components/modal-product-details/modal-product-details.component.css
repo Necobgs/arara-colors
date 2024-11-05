@@ -18,7 +18,6 @@ p {
   display: flex;
   flex-direction: column;
   padding: 20px;
-
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.055);
@@ -139,15 +138,20 @@ p {
 
     outline: none;
     border: none;
-    background-color: #ffde51;
+    background-color: #0074d6;
     text-transform: capitalize;
-    color: #222;
+    color: white;
     letter-spacing: 0.02em;
 
     border-radius: .5rem;
 
-    transition: border-radius 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
+
+  & button:hover {
+    background-color: #1363a5;
+  }
+
 }
 
 .container-frete {

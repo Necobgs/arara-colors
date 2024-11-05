@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { Category } from '../models/interfaces/category';
 
 @Injectable({
@@ -18,4 +18,3 @@ export class CategoryService {
   }
 
 }
-  
