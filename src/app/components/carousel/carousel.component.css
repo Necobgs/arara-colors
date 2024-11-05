@@ -1,8 +1,14 @@
 #carouselExampleIndicators {
-  width: 763px;
-  height: 630px;
+  max-width: 100%; /* Ocupa a largura total disponível */
+  height: auto; /* Ajusta a altura automaticamente */
+}
 
-  & img {
-    border-radius: 10px;
-  }
+.carousel-inner {
+  height: 100%; /* Ajusta ao tamanho do carrossel */
+}
+
+.carousel-item img {
+  object-fit: cover; /* Mantém a proporção da imagem ao preencher o contêiner */
+  width: 100%;
+  height: 100%;
 }
