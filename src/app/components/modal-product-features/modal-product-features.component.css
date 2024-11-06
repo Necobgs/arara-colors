@@ -28,8 +28,16 @@ p {
   min-height: 600px;
 }
 
-.table-striped{
+table {
   width: 80%;
+}
+
+tr {
+  border-bottom: 1px solid rgba(51, 51, 51, 0.28);
+}
+
+td {
+  padding: 10px;
 }
 
 .product-title {
@@ -39,4 +47,8 @@ p {
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: capitalize;
+}
+
+.striped-row{
+  background-color: rgba(0, 0, 0, 0.05);
 }

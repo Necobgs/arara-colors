@@ -4,7 +4,7 @@ import { CardSaleComponent } from '../../components/card-sale/card-sale.componen
 import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { CardCategoryComponent } from '../../components/card-category/card-category.component';
 import { CardProductComponent } from '../../components/card-product/card-product.component';
-import { lastValueFrom, tap } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 import { Product } from '../../../api/models/interfaces/product';
 import { ProductService } from '../../../api/services/product.service';
 import { Category } from '../../../api/models/interfaces/category';

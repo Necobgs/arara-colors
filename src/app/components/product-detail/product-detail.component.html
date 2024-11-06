@@ -1,4 +1,4 @@
-@if(produto){
+@if (produto$ | async; as produto) {
     <app-modal-product-details [produto]="this.produto"></app-modal-product-details>
     @if (this.produto.productFeature && this.produto.productFeature.length > 0) {
         <app-modal-product-features [caracteristicas]="this.produto.productFeature"></app-modal-product-features>

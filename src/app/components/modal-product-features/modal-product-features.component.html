@@ -1,9 +1,9 @@
 <div class="product-page">
     <div class="product-container">
         <h1 class="product-title">Características</h1>
-        <table class="table table-striped">
+        <table>
             @for (row of caracteristicas; track $index) {
-                <tr>
+                <tr class="{{$index % 2 !== 1 ? 'striped-row' : ''}}">
                     <td>
                         <strong>{{row.name}}</strong>
                     </td>
