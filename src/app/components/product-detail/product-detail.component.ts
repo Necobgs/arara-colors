@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ModalProductDetailsComponent } from '../modal-product-details/modal-product-details.component';
 import { ModalProductFeaturesComponent } from "../modal-product-features/modal-product-features.component";
 import { Product } from '../../../api/models/interfaces/product';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Observable, switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../api/services/product.service';
 import { AsyncPipe } from '@angular/common';
@@ -16,16 +16,15 @@ import { AsyncPipe } from '@angular/common';
 })
 export class ProductDetailComponent{
   
-  produto!:Product;
+  produto$!:Observable<Product>;
 
   constructor(private route:ActivatedRoute,
     private productService:ProductService
   ){}
 
-  async ngOnInit(){
-    const id_produto = this.route.snapshot.paramMap.get('id') as string;
-    this.productService.getOne(+id_produto).subscribe((data)=>{
-        this.produto = data;
-    });
+  ngOnInit(){
+    this.produto$ = this.route.paramMap.pipe(
+      switchMap(params => this.productService.getOne(+params.get('id')!))
+    );
   }
 }
