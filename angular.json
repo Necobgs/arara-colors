@@ -25,15 +25,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -90,8 +84,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -100,6 +93,6 @@
     }
   },
   "cli": {
-    "analytics": "9d5dc11a-a7bc-4528-9135-d6b63ab1c7b0"
+    "analytics": "6d567eca-db8f-4401-ade8-588ff786c865"
   }
 }

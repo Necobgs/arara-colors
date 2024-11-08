@@ -24,7 +24,7 @@ export class CardProductComponent {
 
     if (buttonId === 'remove' && this.quantidade > 1) {
       this.quantidade -= 1;
-    } else if (buttonId === 'add') {
+    } else if (buttonId === 'add' && this.quantidade < this.quantidadeProduto) {
       this.quantidade += 1
     }
 
