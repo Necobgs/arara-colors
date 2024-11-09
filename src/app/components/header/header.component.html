@@ -12,20 +12,19 @@
          <li class="nav-item d-flex align-items-center justify-content-center">
             <form class="d-flex search" role="search">
                 <select class="form-select select-search bg-light" aria-label="Default select example">
-                    <option selected>Todos os produtos</option>
-                    <option value="1">Tintas</option>
-                    <option value="2">Papéis</option>
-                    <option value="3">Rótulos</option>
+                    <option selected>Categoria</option>
+                    @for(categoria of categorias; track $index) {
+                      <option value="{{categoria.category_id}}">{{categoria.category_name}}</option>
+                    }
                   </select>
                 <input class="form-control me-2 input-search bg-light" type="search" placeholder="Procurar" aria-label="Search">
                 <button class="button-search" type="submit">
-                    <i class="bi bi-search"></i>
+                    <i class="bi bi-search fs-5"></i>
                 </button>
             </form> 
          </li>
-        
-          <li class="nav-item">
-            <a class="nav-link" href="#">Precisa de ajuda?<br><strong>(48) 99679-4400</strong></a>
+          <li class="nav-item d-flex align-items-center justify-content-center">
+            <a class="nav-link" routerLink="/blog"><strong>Nosso Blog</strong></a>
           </li>
           <li class="nav-item d-flex align-items-center justify-content-center">
             <a href="" class="nav-link nav-icon">
@@ -38,8 +37,8 @@
             </a>
           </li>
           <li class="nav-item dropdown d-flex align-items-center justify-content-center">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Seu carrinho<br><strong>R$1.200,57</strong>
+            <a class="nav-link" href="#">
+              <i class="bi bi-cart fs-4"></i>
             </a>
           </li>
         </ul>

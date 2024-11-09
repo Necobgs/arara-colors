@@ -9,6 +9,12 @@
   height: 45px;
 }
 
+.select-search:focus , .input-search:focus{
+  box-shadow: none;
+}
+
+
+
 .input-search{
   border: 0 solid;
   border-radius: 0px 15px 15px 0px;

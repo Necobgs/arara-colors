@@ -3,11 +3,7 @@ import { Injectable } from '@angular/core';
 import { Auth } from '../models/interfaces/auth';
 import { Product } from '../models/interfaces/product';
 import { ProductDto } from '../models/product.dto';
-<<<<<<< HEAD
-import { environment } from '../../environments/environment';
-=======
 import { environment } from '../../environments/environment.prod';
->>>>>>> 6a22ae92f282322c8e19d8cfabd860dccb1580fb
 
 @Injectable({
   providedIn: 'root'
