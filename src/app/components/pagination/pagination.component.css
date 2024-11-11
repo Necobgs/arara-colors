@@ -36,3 +36,23 @@ nav {
     background-color: #ffde51;
   }
 }
+
+@media (max-width: 768px) {
+  .pagination {
+
+    gap: 10px;
+
+    & a {
+      font-weight: 600;
+      font-size: 12px;
+      color: #787878;
+      text-transform: capitalize;
+      text-align: right;
+      text-decoration: none;
+    }
+  
+    & a:hover {
+      color: #000;
+    }
+  }
+}
