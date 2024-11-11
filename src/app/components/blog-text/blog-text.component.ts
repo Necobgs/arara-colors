@@ -8,7 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './blog-text.component.css'
 })
 export class BlogTextComponent {
-  // scrollToTopico() {
-  //   this.topico1?.nativeElement.scrollIntoView({ behavior: 'smooth' });
-  // }
+  navigateTo(event:MouseEvent,topicId: string) {
+    // Previne o comportamento padrão do link
+    event!.preventDefault();
+    event!.stopPropagation();
+
+    // Faz a rolagem suave para o tópico específico
+    const element = document.getElementById(topicId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
 }

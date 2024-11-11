@@ -2,11 +2,11 @@
   <aside class="blog-index">
     <h2><strong>Índice</strong></h2>
     <ul>
-      <li><a href="blog/#topico1">Teste Fácil</a></li>
-      <li><a href="blog/#topico2">Aprenda Como Pintar Madeira</a></li>
-      <li><a href="blog/#topico3">Como Pintar Rodapé</a></li>
-      <li><a href="blog/#topico4">9 Dicas Para Utilizar Candy Color</a></li>
-      <li><a href="blog/#topico5">Tinta Fosca ou Semi-brilho</a></li>
+      <li><a (click)="navigateTo($event, 'topico1')">Teste Fácil</a></li>
+      <li><a (click)="navigateTo($event, 'topico2')">Aprenda Como Pintar Madeira</a></li>
+      <li><a (click)="navigateTo($event, 'topico3')">Como Pintar Rodapé</a></li>
+      <li><a (click)="navigateTo($event, 'topico4')">9 Dicas Para Utilizar Candy Color</a></li>
+      <li><a (click)="navigateTo($event, 'topico5')">Tinta Fosca ou Semi-brilho</a></li>
     </ul>
   </aside>
 
@@ -14,7 +14,7 @@
     <article id="topico1" class="topic">
       <h2><strong>Teste Fácil</strong></h2>
       <p>Assista o vídeo abaixo para saber mais sobre os testes fáceis</p>
-      <video width="1050" height="600" controls>
+      <video controls>
         <source src="../../../assets/videos/teste-facil.mp4" type="video/mp4" />
         Seu navegador não suporta a reprodução de vídeos.
       </video>
