@@ -103,7 +103,7 @@ img{
   object-fit: cover;
   aspect-ratio: 4/3;
   max-width: 100%;
-  min-width: 80vw;
+  min-width: 30vw;
 }
 
 @media (max-width: 768px) {
@@ -122,5 +122,12 @@ img{
 
   .blog-content{
     width: 100%;
+  }
+
+  img{
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    max-width: 100%;
+    min-width: 80vw;
   }
 }

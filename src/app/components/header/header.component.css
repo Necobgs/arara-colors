@@ -69,7 +69,17 @@
   flex-grow: 0.3;
 }
 
-/* Define o comportamento padrão do menu recolhido */
+
+@media (max-width: 768px) {
+  ul li:first-child{
+    display: none !important;
+  }
+
+  .container-fluid{
+    display: contents;
+  }
+
+  /* Define o comportamento padrão do menu recolhido */
 .collapse {
   max-height: 0;
   overflow: hidden;
@@ -81,15 +91,6 @@
   max-height: 0px; /* Ajuste conforme a altura necessária para o menu expandido */
 }
 
-
-@media (max-width: 768px) {
-  ul li:first-child{
-    display: none !important;
-  }
-
-  .container-fluid{
-    display: contents;
-  }
 
 /* Quando o menu estiver visível */
 
