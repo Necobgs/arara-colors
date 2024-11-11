@@ -17,9 +17,13 @@
   letter-spacing: 0.02em;
   text-transform: capitalize;
   margin-top: 20px;
-  color: #222222
+  color: #275896;
 }
 
 .material-symbols-outlined{
   font-size: 60px;
+}
+
+i{
+  color: #275896;
 }

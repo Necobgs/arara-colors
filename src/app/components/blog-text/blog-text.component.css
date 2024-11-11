@@ -8,15 +8,20 @@
 
 .blog-index {
   width: 20%;
-  background-color: #9d9d9d;
+  background-color: #265694;
   padding: 1.5rem;
   border-radius: 8px;
-  color: #fff;
 }
 
-.blog-index h2 {
+.blog-index h2{
   font-size: 1.5rem;
-  color: #ffde51;
+  color: white;
+}
+
+h2 strong,h3 strong{
+  font-weight: 100;
+  font-family: "Lilita One", sans-serif;
+  text-transform: uppercase;
 }
 
 .blog-index ul {
@@ -48,7 +53,7 @@
 }
 
 .topic h2 {
-  color: #0074d6;
+  color: #7E1816;
   border-bottom: 2px solid #9d9d9d;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
@@ -88,4 +93,9 @@
   width: 100%;
   max-width: 32%;
   border-radius: 8px;
+}
+
+img{
+  object-fit: contain;
+  width: 50vw !important;
 }
