@@ -19,4 +19,11 @@ export class HeaderComponent {
       this.categorias = dado;
     })
   }
+
+  showMenu(){
+    const menu = document.getElementById('navbarSupportedContent')
+    if(menu){
+      menu.style.maxHeight = menu.style.maxHeight == '500px' ? '0px' : '500px';
+    }
+  }
 }

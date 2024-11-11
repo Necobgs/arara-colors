@@ -1,47 +1,49 @@
 <nav class="navbar navbar-expand-lg bg-white">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="assets/images/logoTeste.png" alt="Logo" class="d-inline-block align-text-top logo">
-          </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">
+          <img src="assets/images/logoTeste.png" alt="Logo" class="d-inline-block align-text-top logo">
+      </a>
+      <!-- Botão de toggle para dispositivos móveis -->
+      <button class="navbar-toggler" (click)="showMenu()" type="button" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
-         <li class="nav-item d-flex align-items-center justify-content-center">
-            <form class="d-flex search" role="search">
-                <select class="form-select select-search bg-light" aria-label="Default select example">
-                    <option selected>Categoria</option>
-                    @for(categoria of categorias; track $index) {
-                      <option value="{{categoria.category_id}}">{{categoria.category_name}}</option>
-                    }
-                  </select>
-                <input class="form-control me-2 input-search bg-light" type="search" placeholder="Procurar" aria-label="Search">
-                <button class="button-search" type="submit">
-                    <i class="bi bi-search fs-5"></i>
-                </button>
-            </form> 
-         </li>
-          <li class="nav-item d-flex align-items-center justify-content-center">
-            <a class="nav-link" routerLink="/blog"><strong>Nosso Blog</strong></a>
-          </li>
-          <li class="nav-item d-flex align-items-center justify-content-center">
-            <a href="" class="nav-link nav-icon">
-                <i class="bi bi-person fs-4"></i>
-            </a>
-          </li>
-          <li class="nav-item d-flex align-items-center justify-content-center">
-            <a href="" class="nav-link nav-icon">
-                <i class="bi bi-heart fs-4"></i>
-            </a>
-          </li>
-          <li class="nav-item dropdown d-flex align-items-center justify-content-center">
-            <a class="nav-link" href="#">
-              <i class="bi bi-cart fs-4"></i>
-            </a>
-          </li>
-        </ul>
+      </button>
+      
+      <!-- Menu de navegação que será exibido/ocultado -->
+      <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item d-flex align-items-center justify-content-center">
+                  <form class="d-flex search" role="search">
+                      <select class="form-select select-search bg-light" aria-label="Default select example">
+                          <option selected>Categoria</option>
+                          @for (categoria of categorias; track $index) {
+                            <option [value]="categoria.category_id">{{categoria.category_name}}</option>
+                        }
+                        </select>
+                      <input class="form-control me-2 input-search bg-light" type="search" placeholder="Procurar" aria-label="Search">
+                      <button class="button-search" type="submit">
+                          <i class="bi bi-search fs-5"></i>
+                      </button>
+                  </form>
+              </li>
+              <li class="nav-item d-flex align-items-center justify-content-center">
+                  <a class="nav-link" routerLink="/blog"><strong>Nosso Blog</strong></a>
+              </li>
+              <li class="nav-item d-flex align-items-center justify-content-center">
+                  <a href="#" class="nav-link nav-icon">
+                      <i class="bi bi-person fs-4"></i>
+                  </a>
+              </li>
+              <li class="nav-item d-flex align-items-center justify-content-center">
+                  <a href="#" class="nav-link nav-icon">
+                      <i class="bi bi-heart fs-4"></i>
+                  </a>
+              </li>
+              <li class="nav-item dropdown d-flex align-items-center justify-content-center">
+                  <a class="nav-link" href="#">
+                      <i class="bi bi-cart fs-4"></i>
+                  </a>
+              </li>
+          </ul>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>

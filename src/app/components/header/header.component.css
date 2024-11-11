@@ -1,5 +1,6 @@
 .logo{
   width: 150px;
+  mix-blend-mode: multiply;
 }
 
 .select-search{
@@ -53,7 +54,7 @@
   gap: 10px;
 }
 
-.navbar-nav li:first-child{
+.navbar-nav li:first{
   margin-right: 50px !important;
 }
 
@@ -66,4 +67,30 @@
 
 .navbar-collapse{
   flex-grow: 0.3;
+}
+
+/* Define o comportamento padrão do menu recolhido */
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+/* Define o menu expandido com altura máxima */
+.collapse.show {
+  max-height: 0px; /* Ajuste conforme a altura necessária para o menu expandido */
+}
+
+
+@media (max-width: 768px) {
+  ul li:first-child{
+    display: none !important;
+  }
+
+  .container-fluid{
+    display: contents;
+  }
+
+/* Quando o menu estiver visível */
+
 }

@@ -1,6 +1,5 @@
 #main {
-  width: 200px;
-  height: 200px;
+  height: 20vh;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
@@ -27,3 +26,9 @@
 i{
   color: #275896;
 }
+
+@media (max-width: 768px) {
+  #main{
+    width: 25vh !important;
+  }
+  }

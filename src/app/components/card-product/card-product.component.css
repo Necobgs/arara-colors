@@ -14,6 +14,13 @@
   cursor: pointer;
 }
 
+
+
+
+.card-img-top,.card{
+  max-width: 50vw !important;
+}
+
 #favorite:hover {
   background: rgb(240, 56, 56);
   color: #fff;
@@ -96,4 +103,9 @@
 
 .btn-clicked-add {
   background-color: green;
+}
+
+
+@media (max-width: 768px) {
+  
 }
