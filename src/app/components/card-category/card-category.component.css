@@ -29,6 +29,7 @@ i{
 
 @media (max-width: 768px) {
   #main{
-    width: 25vh !important;
+    width: 18vh !important;
+    height: 18vh !important;
   }
   }

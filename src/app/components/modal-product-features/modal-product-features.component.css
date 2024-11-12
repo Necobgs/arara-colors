@@ -52,3 +52,13 @@ td {
 .striped-row{
   background-color: rgba(0, 0, 0, 0.05);
 }
+
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+
+  .product-container{
+    padding: 10px;
+  }
+}
