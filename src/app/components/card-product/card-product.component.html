@@ -17,7 +17,7 @@
 
     <div class="info-product">
       <span class="qtd">{{ quantidadeProduto }} {{ quantidadeProduto > 1 ? 'UNIDADES' : 'UNIDADE'}}</span>
-      <span class="price">R$ {{ precoProduto }}</span>
+      <span class="price">{{ precoProduto | currencyFormatter }}</span>
 
       <section>
         <button

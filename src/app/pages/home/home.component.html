@@ -18,11 +18,15 @@
 
   <div style="display: flex; justify-content: space-between; margin: 5% 0 5%;">
     <h2 style="font-weight: 700;">Produtos</h2>
-    <app-pagination textToPagination="Ver todos os produtos"></app-pagination>
+    <app-pagination 
+    textToPagination="Ver todos os produtos"
+    (next)="nextPage()" 
+    (previous)="returnPage()"
+    ></app-pagination>
   </div>
 
   <section class="products">
-    @for (produto of produtos; track $index) {
+    @for (produto of produtos!.data; track $index) {
       <app-card-product 
       [nomeProduto]="produto.product_name" 
       [quantidadeProduto]="produto.quantity_in_stock" 

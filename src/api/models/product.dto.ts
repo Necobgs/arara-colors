@@ -5,6 +5,7 @@ export class ProductDto{
     color_name?:string;
     price_gt?:number;
     price_lt?:number;
+    
     constructor(filters:{category_id?:number,color_name?:string,price_gt?:number,price_lt?:number,qty_per_page:number,page:number}){
         this.category_id  = filters.category_id
         this.color_name   = filters.color_name

@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Auth } from '../models/interfaces/auth';
 import { Product } from '../models/interfaces/product';
 import { ProductDto } from '../models/product.dto';
 import { environment } from '../../environments/environment.prod';
+import { DataProduct } from '../models/interfaces/dataProducts';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +48,6 @@ export class ProductService {
 
     const params = paramsArray.join('&');
     const url = `${this.apiUrl}/products?${params}`;
-    return this.http.get<Product[]>(url);
+    return this.http.get<DataProduct>(url);
   }
 }

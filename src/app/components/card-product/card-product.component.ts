@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CurrencyFormatterPipe } from '../../pipes/currency-formatter.pipe';
 
 @Component({
   selector: 'app-card-product',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule , CurrencyFormatterPipe],
   templateUrl: './card-product.component.html',
   styleUrls: ['./card-product.component.css'],
 })
 export class CardProductComponent {
   @Input() nomeProduto!: string;
   @Input() quantidadeProduto!: number;
-  @Input() precoProduto!: number | string;
+  @Input() precoProduto!: number;
   @Input() imagem!: string;
   @Input() id_produto!:number; 
 
