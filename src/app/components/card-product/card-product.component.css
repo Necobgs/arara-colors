@@ -14,9 +14,6 @@
   cursor: pointer;
 }
 
-
-
-
 .card-img-top,.card{
   max-width: 50vw !important;
 }
@@ -107,5 +104,7 @@
 
 
 @media (max-width: 768px) {
-  
+  .card-img-top,.card{
+    max-width: 40vw !important;
+  }
 }

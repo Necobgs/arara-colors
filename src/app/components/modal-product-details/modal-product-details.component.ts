@@ -1,9 +1,6 @@
-import { Component, Input, signal } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Product } from '../../../api/models/interfaces/product';
-import { ProductService } from '../../../api/services/product.service';
-import { lastValueFrom, Observable, tap } from 'rxjs';
-import { ActivatedRoute } from "@angular/router"
 import { CurrencyFormatterPipe } from "../../pipes/currency-formatter.pipe";
 
 @Component({
