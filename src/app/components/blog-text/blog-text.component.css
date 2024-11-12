@@ -6,6 +6,10 @@
   color: #333;
 }
 
+a, p{
+  font-family: "Poppins", Sans-serif;
+}
+
 .blog-index {
   width: 20%;
   background-color: #265694;
@@ -14,8 +18,8 @@
 }
 
 video{
-  height: 40vh;
-  width: 35vw;
+  height: 35vh;
+  width: 30vw;
 }
 
 .blog-index h2{
