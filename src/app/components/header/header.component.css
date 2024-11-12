@@ -80,18 +80,21 @@
   }
 
   /* Define o comportamento padrão do menu recolhido */
-.collapse {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out;
-}
+  .collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
 
-/* Define o menu expandido com altura máxima */
-.collapse.show {
-  max-height: 0px; /* Ajuste conforme a altura necessária para o menu expandido */
-}
+  /* Define o menu expandido com altura máxima */
+  .collapse.show {
+    max-height: 0px; /* Ajuste conforme a altura necessária para o menu expandido */
+  }
 
-
-/* Quando o menu estiver visível */
-
+  .navbar{
+    position: sticky;
+    left: 0px;
+    top: 0px;
+    z-index: 999;
+  }
 }

@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { CardSaleComponent } from './components/card-sale/card-sale.component';
-import { PaginationComponent } from './components/pagination/pagination.component';
-import { CardCategoryComponent } from './components/card-category/card-category.component';
-import { CardProductComponent } from './components/card-product/card-product.component';
+import { LoadingScreenComponent } from "./components/loading-screen/loading-screen.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent, LoadingScreenComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

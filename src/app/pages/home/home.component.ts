@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { CarouselComponent } from '../../components/carousel/carousel.component';
-import { CardSaleComponent } from '../../components/card-sale/card-sale.component';
 import { PaginationComponent } from '../../components/pagination/pagination.component';
 import { CardCategoryComponent } from '../../components/card-category/card-category.component';
 import { CardProductComponent } from '../../components/card-product/card-product.component';
@@ -9,12 +7,13 @@ import { Product } from '../../../api/models/interfaces/product';
 import { ProductService } from '../../../api/services/product.service';
 import { Category } from '../../../api/models/interfaces/category';
 import { CategoryService } from '../../../api/services/category.service';
+import { LoadingService } from '../../../api/services/loading.service';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CarouselComponent, CardSaleComponent, PaginationComponent, CardCategoryComponent, CardProductComponent],
+  imports: [ PaginationComponent, CardCategoryComponent, CardProductComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -23,7 +22,8 @@ export class HomeComponent {
   produtos!:Product[] | null;
   categories!:Category[];
   constructor(private productService:ProductService,
-    private categoryService:CategoryService
+    private categoryService:CategoryService,
+    private loadingService:LoadingService
   ){}
 
   async ngOnInit(){
