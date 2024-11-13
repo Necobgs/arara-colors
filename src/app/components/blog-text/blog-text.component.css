@@ -22,6 +22,10 @@ video{
   width: 30vw;
 }
 
+figure{
+  width: min-content;
+}
+
 .blog-index h2{
   font-size: 1.5rem;
   color: white;

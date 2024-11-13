@@ -69,7 +69,7 @@ strong{
     display: flex;
     align-items: baseline;
     justify-content: center;
-    width: 80%;
+    width: 100%;
 }
 
 .title-section{
@@ -83,6 +83,7 @@ strong{
     align-self: flex-start;
     font-weight: 900;
     gap: 15px;
+    text-align: center;
 }
 
 .title-section::before,.title-section::after{
