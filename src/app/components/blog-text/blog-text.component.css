@@ -23,7 +23,7 @@ video{
 }
 
 figure{
-  width: min-content;
+  height: min-content;
 }
 
 .blog-index h2{
@@ -32,8 +32,8 @@ figure{
 }
 
 h2 strong,h3 strong{
-  font-weight: 100;
-  font-family: "Lilita One", sans-serif;
+  font-weight: 800;
+  font-family: "Poppins", Sans-serif;
   text-transform: uppercase;
 }
 
