@@ -1,0 +1,57 @@
+main{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-direction: column;
+}
+
+.texts{
+    padding: 5vw 35vw 5vw 35vw;
+}
+
+.banner-sobre-nos{
+    width: 100%;
+    height: 12vh;
+    background-color: #7E1816;
+    border: 1px solid transparent;
+    border-radius: 0px 125px 0px 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+a, p, h1,h3{
+    font-family: "Poppins", Sans-serif;
+}
+
+h3{
+    font-weight: 600;
+}
+
+h3:not(:first-of-type){
+    padding-top: 30px;
+}
+
+strong{
+    font-weight: 900;
+}
+
+
+@media (max-width: 768px){
+    .texts{
+        padding: 5vw 10vw 5vw 10vw;
+    }
+
+    .banner-sobre-nos{
+        width: 100%;
+        height: 8vh;
+    }
+
+    h3{
+        padding-top: 30px;
+    }
+}
