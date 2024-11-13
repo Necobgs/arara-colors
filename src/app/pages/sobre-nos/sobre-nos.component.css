@@ -7,12 +7,16 @@ main{
     flex-direction: column;
 }
 
-.texts{
+/* .historia{
     padding: 5vw 35vw 5vw 35vw;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+} */
 
 .banner-sobre-nos{
-    width: 100%;
+    width: 95%;
     height: 12vh;
     background-color: #7E1816;
     border: 1px solid transparent;
@@ -22,14 +26,20 @@ main{
     justify-content: center;
     text-align: center;
     color: white;
+    margin-top: 1vw;
 }
 
 a, p, h1,h3{
     font-family: "Poppins", Sans-serif;
 }
 
+p strong{
+    color: #6e5206;
+}
+
 h3{
-    font-weight: 600;
+    font-weight: 700;
+    /* color: #C69D29; */
 }
 
 h3:not(:first-of-type){
@@ -40,15 +50,70 @@ strong{
     font-weight: 900;
 }
 
+.missao-visao-valores, .historia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vw 5vw 0vw 5vw;
+    text-align:justify;
+    gap: 5vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    & article{
+        max-width: 25%;
+    }
+}
+
+.div-title{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    width: 80%;
+}
+
+.title-section{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #265A98;
+    padding: 15px;
+    border-radius: 30px;
+    align-self: flex-start;
+    font-weight: 900;
+    gap: 15px;
+}
+
+.title-section::before,.title-section::after{
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    color: #265A98;
+    background-color: #265A98;
+    text-align: center;
+}
+
+
 
 @media (max-width: 768px){
-    .texts{
+    .missao-visao-valores, .historia{
+        flex-direction: column;
         padding: 5vw 10vw 5vw 10vw;
+
+        & article{
+            max-width: 100%;
+        }
+
     }
 
+
+
     .banner-sobre-nos{
-        width: 100%;
+        width: 95%;
         height: 8vh;
+        margin-top: 5vw;
     }
 
     h3{
